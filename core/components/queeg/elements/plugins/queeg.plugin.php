@@ -7,15 +7,17 @@ switch ($modx->event->name) {
         }
 
         if ($modx->user->hasSessionContext('mgr')) {
-            $jsonOutput = array();
             $appname =  'queeg';
+            $contentArray = array();
+            $systemArray = array();
 
+            // get queeg version
             $package = $modx->getObject('transport.modTransportPackage', array('package_name' => 'queeg'));
-
             if ($package) {
                 $major = $package->get('version_major');
             }
 
+            // get user's language
             $userSettings = $modx->user->getSettings();
             $lang = $userSettings['manager_language'];
 
@@ -23,6 +25,10 @@ switch ($modx->event->name) {
                 $lang = $modx->getOption('manager_language', null, 'en');
             }
 
+            $modx->setOption('cultureKey', $lang);
+            $modx->lexicon->load('core:default');
+
+            // Initialize system settings
             $api =  $major;
             $param['id'] =  true;
             $param['published'] = (boolean) $modx->getOption('modxchromemanager.published', null, true);
@@ -30,18 +36,16 @@ switch ($modx->event->name) {
             $param['editedby'] = (boolean) $modx->getOption('modxchromemanager.editedby', null, true);
             $custom_fields = $modx->getOption('modxchromemanager.custom_fields', null, false);
 
+            // Define system fields
             $systemFields = array('id', 'published');
 
             if ($custom_fields) {
-                $customArray = array_map('trim', explode(",", $custom_fields)); // explode and trim
-                $custom_params = array_fill_keys($customArray, true); // Change val => key and set true
-                $param = array_merge($param, $custom_params); // merge default and custom
+                $cFields = array_map('trim', explode(",", $custom_fields)); // explode and trim
+                $cArray = array_fill_keys($cFields, true); // Change val => key and set true
+                $param = array_merge($param, $cArray); // merge default fields and custom fields
             }
 
             $params = array_filter($param); // remove false options
-
-            $modx->setOption('cultureKey', $lang);
-            $modx->lexicon->load('core:default');
 
             foreach ($params as $key => $value) {
 
@@ -55,25 +59,25 @@ switch ($modx->event->name) {
 
                 // System Values
                 if (in_array($key, $systemFields)) {
-                    $jsonOutputSystem[$key] = $data;
+                    $systemArray[$key] = $data;
                 }
 
+                // Content values
                 $key = str_replace("'", '&apos;', $modx->lexicon($key));
-                // $key = $modx->lexicon($key);
-                $jsonOutput[$key] = $data;
+                $contentArray[$key] = $data;
             }
 
             $protocol = stripos($_SERVER['SERVER_PROTOCOL'],'https') === true ? 'https://' : 'http://';
 
             // Add system params
-            $jsonOutputSystem['host'] = $protocol . $_SERVER['HTTP_HOST'];
-            $jsonOutputSystem['manager'] = MODX_MANAGER_URL;
+            $systemArray['host'] = $protocol . $_SERVER['HTTP_HOST'];
+            $systemArray['manager'] = MODX_MANAGER_URL;
 
-            $jsonSystem = json_encode($jsonOutputSystem);
-            $json = json_encode($jsonOutput);
+            $system = json_encode($systemArray);
+            $content = json_encode($contentArray);
 
             $output = &$modx->resource->_output;
-            $output = preg_replace('/(<\/head>(?:<\/head>)?)/i',"<meta name='{$appname}' content='{$json}' data-system='{$jsonSystem}' data-api='{$api}' />\r\n$1", $output);
+            $output = preg_replace('/(<\/head>(?:<\/head>)?)/i',"<meta name='{$appname}' content='{$content}' data-system='{$system}' data-api='{$api}' />\r\n$1", $output);
         }
         break;
 }
