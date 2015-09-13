@@ -35,6 +35,7 @@ switch ($modx->event->name) {
             $param['editedon'] = (boolean) $modx->getOption('queeg.editedon', null, true);
             $param['editedby'] = (boolean) $modx->getOption('queeg.editedby', null, true);
             $custom_fields = $modx->getOption('queeg.custom_fields', null, false);
+            $date_format = $modx->getOption('queeg.date_format', null, 'Y-m-d H:i');
 
             // Define system fields
             $systemFields = array('id', 'published');
@@ -55,6 +56,10 @@ switch ($modx->event->name) {
                     if ($data) {
                         $data = $modx->getObject('modUser', $data)->get('username');
                     }
+                }
+
+                if ($key == 'editedon') {
+                    $data = date($date_format, $data);
                 }
 
                 // System Values
