@@ -1,5 +1,5 @@
 # MODX Queeg
-Queeg is a simple MODX Extra that provides a **one click** access to MODX Resources from a website to it's manager.
+Queeg is a simple MODX Extra that provides a **one click** access to MODX Resources from a website to its manager.
 
 Queeg works together with [MODX Queeg Chrome Extension](https://chrome.google.com/webstore/detail/modx-manager-switch/pchmcecidlmiajanecgkibndaoabncke)!
 
