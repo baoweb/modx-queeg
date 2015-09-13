@@ -44,6 +44,12 @@
             ,"value": ""
             ,"type": "textfield"
             ,"area": "default"
+        },
+        {
+            "key": "active"
+            ,"value": 1
+            ,"type": "combo-boolean"
+            ,"area": "default"
         }]
     },
     "extensionPackage": {}
