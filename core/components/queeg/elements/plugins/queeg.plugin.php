@@ -68,8 +68,15 @@ if ($modx->getOption('queeg.active', null, true)) {
                         $systemArray[$key] = $data;
                     }
 
+                    // Translate
+                    if ($key == 'editedby') {
+                        $modx->lexicon->load('core:resource');
+                        $key = str_replace("'", '&apos;', $modx->lexicon('resource_' . $key));
+                    } else {
+                        $key = str_replace("'", '&apos;', $modx->lexicon($key));
+                    }
+
                     // Content values
-                    $key = str_replace("'", '&apos;', $modx->lexicon($key));
                     $contentArray[$key] = $data;
                 }
 
