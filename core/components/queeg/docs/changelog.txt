@@ -1,5 +1,8 @@
 Changelog for Queeg.
 
-Queeg 1.0.0 pl
+Queeg 1.2.0 pl
 ==============
-+ Initial version
++ Add custom date format
++ Add choice for completely enable / disable plugin
++ Fix loading system settings 
++ Fix loading lexicon translation

@@ -1,9 +1,9 @@
 {
     "name": "Queeg",
     "lowCaseName": "queeg",
-    "description": "Advanced",
-    "author": "Bart",
-    "version": "1.1.0",
+    "description": "Quick Resource Access. One click access to MODX Resources from a website to its manager.",
+    "author": "Bartholomej",
+    "version": "1.2.0",
     "package":{
         "actions": [{
             "id": 1
