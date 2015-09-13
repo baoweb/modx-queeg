@@ -31,10 +31,10 @@ switch ($modx->event->name) {
             // Initialize system settings
             $api =  $major;
             $param['id'] =  true;
-            $param['published'] = (boolean) $modx->getOption('modxchromemanager.published', null, true);
-            $param['editedon'] = (boolean) $modx->getOption('modxchromemanager.editedon', null, true);
-            $param['editedby'] = (boolean) $modx->getOption('modxchromemanager.editedby', null, true);
-            $custom_fields = $modx->getOption('modxchromemanager.custom_fields', null, false);
+            $param['published'] = (boolean) $modx->getOption('queeg.published', null, true);
+            $param['editedon'] = (boolean) $modx->getOption('queeg.editedon', null, true);
+            $param['editedby'] = (boolean) $modx->getOption('queeg.editedby', null, true);
+            $custom_fields = $modx->getOption('queeg.custom_fields', null, false);
 
             // Define system fields
             $systemFields = array('id', 'published');
