@@ -8,7 +8,7 @@ In combination with [this Chrome extension](https://chrome.google.com/webstore/d
 
 As you can imagine, it's useful for editors (and also for you, developers).
 
-![Screenshot](https://raw.githubusercontent.com/bartholomej/modx-manager-switch/master/_assets/screenshot_chrome-page-action.png) 
+![Screenshot](https://raw.githubusercontent.com/bartholomej/modx-manager-switch/master/_assets/queeg_animation.gif) 
 
 ## Installation and how to use it?
 1. Install **MODX Extra** Queeg through Package Management *(Extras → Installer → Download Extras → Queeg)*
