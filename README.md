@@ -12,7 +12,17 @@ As you can imagine, it's useful for editors (and also for you, developers).
 
 ## Installation and how to use it?
 1. Install **MODX Extra** Queeg through Package Management *(Extras → Installer → Download Extras → Queeg)*
-2. Install **Chrome extension** [MODX Queeg](https://chrome.google.com/webstore/detail/modx-manager-switch/pchmcecidlmiajanecgkibndaoabncke)
+2. Install **Chrome extension** [MODX Queeg](https://chrome.google.com/webstore/detail/modx-manager-switch/pchmcecidlmiajanecgkibndaoabncke).
+
+## Legend
+
+*If you want to use it like this, you have to install both Queeg Extra and [Queeg Chrome extension](https://chrome.google.com/webstore/detail/modx-manager-switch/pchmcecidlmiajanecgkibndaoabncke)*
+
+| Symbol  | Description | Click | Hover |
+|------|------|------|------|
+| ![MODX](https://raw.githubusercontent.com/bartholomej/modx-manager-switch/master/_assets/ic_active-published.png) | Resource ID is `20` and document is published (green).| Edit Resource 20 | Info |
+| ![MODX](https://raw.githubusercontent.com/bartholomej/modx-manager-switch/master/_assets/ic_active-unpublished.png) | Resources ID is `81` and document is NOT published (red).| Edit Resource 81 | Info|
+| ![MODX](https://raw.githubusercontent.com/bartholomej/modx-manager-switch/master/_assets/ic_inactive.png)| MODX wasn't detected. You are not logged in OR Queeg isn't installed. | Go to `/manager` | - |
 
 ## Technical details
 Queeg injects meta data into the *html head* via a *MODX plugin*. Meta data are also used in the browser extension for information about the MODX Resource such as editedby, editedon, published etc.
