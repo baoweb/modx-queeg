@@ -1,5 +1,9 @@
 Changelog for Queeg.
 
+Queeg 1.2.1 pl
+==============
+* Fix potentially flooding Error log
+
 Queeg 1.2.0 pl
 ==============
 + Add custom date format
