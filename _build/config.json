@@ -51,6 +51,5 @@
             ,"type": "combo-boolean"
             ,"area": "default"
         }]
-    },
-    "extensionPackage": {}
+    }
 }
