@@ -57,7 +57,13 @@ if ($modx->getOption('queeg.active', null, true)) {
 
                     if ($key == 'editedby') {
                         if ($data) {
-                            $data = $modx->getObject('modUser', $data)->get('username');
+                            $usrObj = $modx->getObject('modUser', $data);
+
+                            if ($usrObj instanceof modUser) {
+                                $data = $usrObj->get('username');
+                            } else {
+                                break;
+                            }
                         }
                     }
 
