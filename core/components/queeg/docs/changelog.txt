@@ -1,5 +1,9 @@
 Changelog for Queeg.
 
+Queeg 1.2.2 pl
+==============
+* Fix php notice when user settings are not set
+
 Queeg 1.2.1 pl
 ==============
 * Fix potentially flooding Error log
