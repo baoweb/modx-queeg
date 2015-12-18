@@ -24,7 +24,7 @@ if ($modx->getOption('queeg.active', null, true)) {
                     $lang = $userSettings['manager_language'];
                 }
 
-                if (!$lang) {
+                if (!isset($lang)) {
                     $lang = $modx->getOption('manager_language', null, 'en');
                 }
 
