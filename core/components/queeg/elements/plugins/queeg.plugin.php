@@ -94,8 +94,8 @@ if ($modx->getOption('queeg.active', null, true)) {
                 $systemArray['host'] = $protocol . $_SERVER['HTTP_HOST'];
                 $systemArray['manager'] = MODX_MANAGER_URL;
 
-                $system = json_encode($systemArray);
-                $content = json_encode($contentArray);
+                $system = json_encode($systemArray, JSON_UNESCAPED_UNICODE);
+                $content = json_encode($contentArray, JSON_UNESCAPED_UNICODE);
 
                 $output = &$modx->resource->_output;
                 $output = preg_replace('/(<\/head>(?:<\/head>)?)/i',"<meta name='{$appname}' content='{$content}' data-system='{$system}' data-api='{$api}' />\r\n$1", $output);
