@@ -1,5 +1,9 @@
 Changelog for Queeg.
 
+Queeg 1.2.4 pl
+==============
+* Fix PHP warnings for undefined variables
+
 Queeg 1.2.3 pl
 ==============
 * Fix fatal error when user doesn't exist (probably when user was removed)
