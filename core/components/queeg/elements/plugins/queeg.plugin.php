@@ -88,6 +88,13 @@ if ($modx->getOption('queeg.active', null, true)) {
                     $contentArray[$key] = $data;
                 }
 
+                // Timing tags
+                // TODO: lexicon
+                $totalTime = microtime(true) - $modx->startTime;
+                $contentArray['t'] = sprintf("%2.4f s", $totalTime);
+                $contentArray['qt'] = sprintf("%2.4f s", $modx->queryTime);
+                $contentArray['q'] = isset($modx->executedQueries) ? $modx->executedQueries : 0;
+
                 $protocol = stripos($_SERVER['SERVER_PROTOCOL'],'https') === true ? 'https://' : 'http://';
 
                 // Add system params
