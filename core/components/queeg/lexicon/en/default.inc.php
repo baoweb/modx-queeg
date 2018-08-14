@@ -4,6 +4,9 @@ $_lang['setting_queeg.id'] = 'Show document ID';
 $_lang['setting_queeg.published'] = 'Published';
 $_lang['setting_queeg.published_desc'] = 'Show "published" status output';
 
+$_lang['setting_queeg.timing'] = 'Timing tags';
+$_lang['setting_queeg.timing_desc'] = 'Show timing tags (e.g.: Query Time, Query Count, Total Time)';
+
 $_lang['setting_queeg.editedon'] = 'Edited on';
 $_lang['setting_queeg.editedon_desc'] = 'Show "Edited on" output';
 
