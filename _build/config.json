@@ -3,7 +3,7 @@
     "lowCaseName": "queeg",
     "description": "Quick Resource Access. One click access to MODX Resources from a website to its manager.",
     "author": "Bartholomej",
-    "version": "1.2.4",
+    "version": "1.3.0",
     "package":{
         "actions": [{
             "id": 1

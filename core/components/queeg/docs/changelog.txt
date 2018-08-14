@@ -1,5 +1,10 @@
 Changelog for Queeg.
 
+Queeg 1.3.0 pl
+==============
+* Add Timing tags. Now you can see Query Time, Query Count and Total Time.  (Of course you can turn it off in System Settings).
+Thanks to Mikhail (mishantrop)
+
 Queeg 1.2.4 pl
 ==============
 * Fix PHP warnings for undefined variables
@@ -20,5 +25,5 @@ Queeg 1.2.0 pl
 ==============
 + Add custom date format
 + Add choice for completely enable / disable plugin
-+ Fix loading system settings 
++ Fix loading system settings
 + Fix loading lexicon translation
