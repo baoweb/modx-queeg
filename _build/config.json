@@ -22,6 +22,12 @@
             ,"area": "default"
         },
         {
+            "key": "timing"
+            ,"value": 1
+            ,"type": "combo-boolean"
+            ,"area": "default"
+        },
+        {
             "key": "editedon"
             ,"value": 1
             ,"type": "combo-boolean"

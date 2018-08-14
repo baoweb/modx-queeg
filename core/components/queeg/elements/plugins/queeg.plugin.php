@@ -36,6 +36,7 @@ if ($modx->getOption('queeg.active', null, true)) {
                 $param['id'] =  true;
                 $param['published'] = (boolean) $modx->getOption('queeg.published', null, true);
                 $param['editedon'] = (boolean) $modx->getOption('queeg.editedon', null, true);
+                $param['timing'] = (boolean) $modx->getOption('queeg.timing', null, true);
                 $param['editedby'] = (boolean) $modx->getOption('queeg.editedby', null, true);
                 $custom_fields = $modx->getOption('queeg.custom_fields', null, false);
                 $date_format = $modx->getOption('queeg.date_format', null, 'Y-m-d H:i');
@@ -86,14 +87,18 @@ if ($modx->getOption('queeg.active', null, true)) {
 
                     // Content values
                     $contentArray[$key] = $data;
+
+                    // Timing tags
+                    // TODO: lexicon
+                    if ($key == 'timing') {
+                        $totalTime = microtime(true) - $modx->startTime;
+                        $contentArray['t'] = sprintf("%2.4f s", $totalTime);
+                        $contentArray['qt'] = sprintf("%2.4f s", $modx->queryTime);
+                        $contentArray['q'] = isset($modx->executedQueries) ? $modx->executedQueries : 0;
+                        unset($contentArray['timing']);
+                    }
                 }
 
-                // Timing tags
-                // TODO: lexicon
-                $totalTime = microtime(true) - $modx->startTime;
-                $contentArray['t'] = sprintf("%2.4f s", $totalTime);
-                $contentArray['qt'] = sprintf("%2.4f s", $modx->queryTime);
-                $contentArray['q'] = isset($modx->executedQueries) ? $modx->executedQueries : 0;
 
                 $protocol = stripos($_SERVER['SERVER_PROTOCOL'],'https') === true ? 'https://' : 'http://';
 
